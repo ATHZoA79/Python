@@ -1,6 +1,8 @@
 import sqlite3 as db 
 
-my_db = db.connect('0702.sqlite')
+my_db = db.connect('./0702.sqlite')
+# cursor = my_db.cursor()
+# print(cursor.execute('select * from demo01').fetchall())
 
 def searchByColumn(col, text) :
     data = my_db.execute('select * from opendata_1 where %s = "%s"'%(col, text))
