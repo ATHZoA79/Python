@@ -7,7 +7,7 @@ options.chrome_executable_path="C:/Anthony/Selenium_20230709/day_6/chromedriver.
 driver = webdriver.Chrome(options=options)
 
 driver.get('http://127.0.0.1/anthony/demo01.html')
-ele = driver.find_element(By.CLASS_NAME, "link")
+ele = driver.find_element(By.ID, "link")
 print(ele)
 
 driver.close()
