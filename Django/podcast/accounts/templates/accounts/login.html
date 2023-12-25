@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Login | Podcaster{% endblock title %}
+
+{% block content %}
+<div class="flex justify-center items-center h-screen">
+  <div class="p-6 max-w-md bg-green-500 rounded-lg shadow-lg">
+    <h2 class="text-2xl text-white font-bold mb-4 p-2">Login</h2>
+
+    <form action="{% url "login" %}" method="post">
+      {% csrf_token %}
+      <div class="mb-4">
+        <label for="username" class="text-white">Username</label>
+        <input 
+          id="username"
+          name="username"
+          type="text" 
+          class="w-full bg-gray-200 rounded-lg px-3 py-2"
+          placeholder="Enter your username"
+          required>
+      </div>
+      <div class="mb-4">
+        <label for="password" class="text-white">Password</label>
+        <input 
+          id="password"
+          name="password"
+          type="password" 
+          class="w-full bg-gray-200 rounded-lg px-3 py-2"
+          placeholder="Enter your password"
+          required>
+      </div>
+
+      <button type="submit" class="p-2 rounded-md text-white hover:bg-green-600 font-semibold">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

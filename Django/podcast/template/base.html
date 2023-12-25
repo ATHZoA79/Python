@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock title %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col">
+  <nav class="flex items-center justify-between bg-black text-white p-4">
+    <ul class="flex space-x-4">
+      <li class="">
+        <a href="/podcasts" class="hover:text-gray-400">Podcasts</a>
+      </li>
+    </ul>
+
+    <div class="flex items-center">
+      <a href="/" class="text-xl font-bold text-green-400">Podcaster</a>
+    </div>
+
+    <ul class="flex space-x-4">
+      {% if user.is_authenticated %}
+        <li><span>Hello {{ user.username }}</span></li>
+        <li><a href="{% url "logout" %}" class="px-2">Logout</a></li>
+      {% else %}
+        <li>
+          <a href="{% url "login" %}" class="hover:text-gray-400">Login</a>
+        </li>
+        <li>
+          <a href="{% url "register" %}" class="hover:text-gray-400">Register</a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% block content %}{% endblock content %}
+</body>
+</html>

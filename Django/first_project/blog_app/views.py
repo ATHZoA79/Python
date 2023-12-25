@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post
 
 posts = [
     {
@@ -20,7 +21,7 @@ posts = [
 # 這個函式被urls呼叫作為路由進入點
 def home(request):
     context = {
-        'posts': posts,
+        'posts': Post.objects.all(),
     }
     return render(request, 'blog/index.html', context)
 

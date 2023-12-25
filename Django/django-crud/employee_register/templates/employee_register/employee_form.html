@@ -1,0 +1,17 @@
+{% extends "employee_register/base.html" %}
+
+{% block title %}
+<title>Employee Form | Django CRUD</title>
+{% endblock title %}
+
+{% block content %}
+<form 
+    action="" 
+    method="post"
+    autocomplete="off"
+    class="d-flex flex-column col-4">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-success mt-4">Submit</button>
+</form>
+{% endblock content %}
